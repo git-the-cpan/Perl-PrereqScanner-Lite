@@ -4,7 +4,7 @@
       "moznion <moznion@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.1.1",
+   "generated_by" : "Minilla/v2.3.0",
    "license" : [
       "perl_5"
    ],
@@ -65,7 +65,7 @@
    "provides" : {
       "Perl::PrereqScanner::Lite" : {
          "file" : "lib/Perl/PrereqScanner/Lite.pm",
-         "version" : "0.21"
+         "version" : "0.22"
       },
       "Perl::PrereqScanner::Lite::Constants" : {
          "file" : "lib/Perl/PrereqScanner/Lite/Constants.pm"
@@ -84,9 +84,9 @@
       },
       "homepage" : "https://github.com/moznion/Perl-PrereqScanner-Lite",
       "repository" : {
-         "url" : "git://github.com/moznion/Perl-PrereqScanner-Lite",
+         "url" : "git://github.com/moznion/Perl-PrereqScanner-Lite.git",
          "web" : "https://github.com/moznion/Perl-PrereqScanner-Lite"
       }
    },
-   "version" : "0.21"
+   "version" : "0.22"
 }
