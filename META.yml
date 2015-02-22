@@ -29,7 +29,7 @@ no_index:
 provides:
   Perl::PrereqScanner::Lite:
     file: lib/Perl/PrereqScanner/Lite.pm
-    version: '0.22'
+    version: '0.23'
   Perl::PrereqScanner::Lite::Constants:
     file: lib/Perl/PrereqScanner/Lite/Constants.pm
   Perl::PrereqScanner::Lite::Scanner::Moose:
@@ -38,7 +38,7 @@ provides:
     file: lib/Perl/PrereqScanner/Lite/Scanner/Version.pm
 requires:
   CPAN::Meta::Requirements: '2.125'
-  Compiler::Lexer: '0.19'
+  Compiler::Lexer: '0.22'
   Module::Path: '0'
   parent: '0'
   perl: '5.008005'
@@ -46,4 +46,4 @@ resources:
   bugtracker: https://github.com/moznion/Perl-PrereqScanner-Lite/issues
   homepage: https://github.com/moznion/Perl-PrereqScanner-Lite
   repository: git://github.com/moznion/Perl-PrereqScanner-Lite.git
-version: '0.22'
+version: '0.23'
