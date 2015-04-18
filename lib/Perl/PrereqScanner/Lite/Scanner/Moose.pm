@@ -14,6 +14,23 @@ sub scan {
     }
 
     if ($c->{is_in_moose_inherited}) {
+        # to skip content which is is curly bracket -> { ... }
+        {
+            if ($token_type == LEFT_BRACE) {
+                $c->{is_in_moose_role_def} = 1;
+                return 1;
+            }
+
+            if ($token_type == RIGHT_PAREN) {
+                $c->{is_in_moose_role_def} = 0;
+                return 1;
+            }
+
+            if ($c->{is_in_moose_role_def}) {
+                return 1;
+            }
+        }
+
         # For qw() notation
         # e.g.
         #   extends qw/Foo Bar/;
@@ -69,7 +86,12 @@ sub scan {
             return 1;
         }
 
-        $c->{does_exist_moose_garbage} = 1;
+        # For
+        #   extends 'Class1', 'Class2';
+        if ($token_type != COMMA) {
+            $c->{does_exist_moose_garbage} = 1;
+        }
+
         return 1;
     }
 

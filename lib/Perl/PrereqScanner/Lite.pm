@@ -7,7 +7,7 @@ use Compiler::Lexer;
 use CPAN::Meta::Requirements;
 use Perl::PrereqScanner::Lite::Constants;
 
-our $VERSION = "0.24";
+our $VERSION = "0.25";
 
 sub new {
     my ($class, $opt) = @_;
@@ -347,7 +347,7 @@ __END__
 
 =encoding utf-8
 
-=for stopwords prepend
+=for stopwords prepend reimplement
 
 =head1 NAME
 
@@ -468,6 +468,26 @@ In this case C<Foo> is the prereq, however C<Bar> is ignored.
                                 Rate   Perl::PrereqScanner Perl::PrereqScanner::Lite
     Perl::PrereqScanner       9.00/s                    --                      -94%
     Perl::PrereqScanner::Lite  152/s                 1587%                        --
+
+=head1 NOTES
+
+This is a quotation from L<https://github.com/moznion/Perl-PrereqScanner-Lite/issues/13>.
+
+=begin text
+
+The interface of an this module object suggests every scan_* call is not affected by any other, yet the code is storing the requirements in that object. This is quite surprising.
+
+I'd suggest that either it must change to be more functional-style, or this behavior should be clearly documented.
+
+=end text
+
+Yes, it's true. This design is so ugly and not smart.
+So I have to redesign and reimplement this module, and I have some plans.
+
+If you have a mind to expand this module by implementing external scanner,
+please be careful.
+Every C<scan_*> calls must not affect to any others through the
+singleton of this module (called it C<$c> in L<https://github.com/moznion/Perl-PrereqScanner-Lite/blob/c03638b2e2a39d92f4d7df360af5a6be65dc417a/lib/Perl/PrereqScanner/Lite/Scanner/Moose.pm#L8>).
 
 =head1 SEE ALSO
 
